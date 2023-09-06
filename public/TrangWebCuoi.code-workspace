@@ -1,0 +1,13 @@
+{
+  "folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": "../TrangWebCuoi_BE"
+    }
+  ],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "TrangWebCuoi"
+  }
+}
