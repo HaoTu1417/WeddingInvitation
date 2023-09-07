@@ -946,7 +946,7 @@
             };
 
             console.log("requestData", requestData);
-            axios.post("http://localhost:5035/api/guests", requestData, {
+            axios.post("/api/guests", requestData, {
                 headers: {
                     'Access-Control-Allow-Origin': '*',
                     'Content-Type': 'application/json',
