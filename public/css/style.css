@@ -4203,8 +4203,9 @@ img {
 }
 
 .bg-color {
-	/* background-color: #F8C8DC; */
-	background: linear-gradient(to bottom right, #CCFbFF 0%, #EF95c5 100%);
+	/* background-color: #FFb3c6; */
+	/* background-color:url('../Images/bg.jpg'); */
+	background: linear-gradient(to right,#96c3ec 0%, #feadcd 100%);
 }
 
 
