@@ -40,6 +40,14 @@ const courseSchema = new mongoose.Schema({
     type: Boolean,
     required: false,
   },
+  vegetarianCount: {
+    type: Number,
+    required: false,
+    validate: {
+      validator: Number.isInteger,
+      message: "{VALUE} is not an integer value",
+    },
+  },
 });
 
 export default mongoose.model("Guest", courseSchema);

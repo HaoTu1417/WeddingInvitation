@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta property="og:site_name" content="Thiệp cưới The Simple">
-    <meta property="og:url" content="./Images/647fdd37ab706-GIF MARRY YOU.gif">
+    <meta property="og:url" content="./Images/HaoHanh.gif">
     <meta property="og:title" content="Tùng Hào &amp; Tú Hạnh - Wedding Invitation">
     <meta property="og:type" content="website">
     <meta property="og:description" content="Thiệp cưới Online của Chú rể Thanh Khánh và Cô dâu Mai Quyên.">
@@ -84,7 +84,7 @@
         send_text_alert_rsvp="Gửi lời nhắn hoặc lời chúc" btn_send_mb="Gửi đi">
         <div> <!--class="box-tsimple-online"-->
             <div class="cover">
-                <img src="./Images/647fdd37ab706-GIF MARRY YOU.gif">
+                <img src="./Images/HaoHanh.gif">
             </div>
 
             <div class="box-ab-if mb-20 mt-20">
@@ -109,8 +109,7 @@
                                         <img class="pos1"
                                             src="https://app.thesimple.vn/template-thiep/thiep-cuoi-1/images/farm-sk.png">
                                         <!-- <img class="pos2" src="https://app.thesimple.vn/template-thiep/thiep-cuoi-1/images/groom.jpg"> -->
-                                        <img class="pos2"
-                                            src="https://app.thesimple.vn/uploads/contact/63f3486a6aeaf.png">
+                                        <img class="pos2" src="./Images/hao.jpg">
                                         <div class="pos3">
                                             <img src="./Images/LeftArrow.svg" class="w-77">
                                         </div>
@@ -370,11 +369,13 @@
                                 </div>
                                 <div class="left">
                                     <div class="farme">
+
                                         <img class="pos1"
                                             src="https://app.thesimple.vn/template-thiep/thiep-cuoi-1/images/farm-sk.png">
+                                        <img class="hanhImg" src="./Images/hanh.png">
+                                        </img>
                                         <!-- <img class="pos2" src="https://app.thesimple.vn/template-thiep/thiep-cuoi-1/images/bride.jpg"> -->
-                                        <img class="pos2"
-                                            src="https://app.thesimple.vn/uploads/contact/63f3486a710d8.png">
+
                                         <div class="pos3">
 
                                             <img src="./Images/rightArrow.svg" />
@@ -748,7 +749,7 @@
             <div class="text-center mt-20 element-hide-rap">
                 <div>
                     <span class="font-18">Số lượng người ăn chay</span>
-                    <select id="IsVegetarian" class="form-control" name="select_pt_pt">
+                    <select id="VegetarianCount" class="form-control" name="select_pt_pt">
                         <option value="1">
                             1
                         </option>
@@ -955,6 +956,7 @@
 
 
             var IsVegetarianOption = document.getElementById("IsVegetarian").value;
+            var VegetarianCount = document.getElementById("VegetarianCount").value;
             //var TransportationType = document.getElementById("TransportationType").value;
             var AttendessCount = document.getElementById("AttendessCount").value;
             var GuestType = document.getElementById("option-1").checked;
@@ -978,7 +980,8 @@
                 "ready": GuestStatus,
                 "count": AttendessCount,
                 "transportationType": 0,
-                "vegetarian": IsVegetarianOption
+                "vegetarian": IsVegetarianOption,
+                "vegetarianCount": VegetarianCount,
 
             };
 

@@ -11,8 +11,9 @@ export function createQuest(req, res) {
     count: req.body.count,
     transportationType: req.body.transportationType,
     vegetarian: req.body.vegetarian,
+    vegetarianCount: req.body.vegetarianCount,
   });
-
+  console.log(course);
   return course
     .save()
     .then((newGuest) => {
