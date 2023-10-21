@@ -1022,7 +1022,11 @@
                 });
         }
 
-
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
 
         let tz = jstz.determine();
         let htmlx = $(".addevent").attr('data-event');
@@ -1082,7 +1086,17 @@
 
 
 
-
+        $( document ).ready(function() {
+            console.log( "ready!" );
+            var audio = document.getElementById("audio");
+            var sources = ["audio1.mp3","audio2.mp3","audio3.mp3","audio4.mp3"];
+            const targetAudioIndex= getRandomInt(0,3);
+            console.log("sources",sources)
+            console.log('target adudio index: '+targetAudioIndex);
+            if(audio){
+                audio.src= "./audios/"+sources[targetAudioIndex];
+            }
+        });
 
     </script>
 
