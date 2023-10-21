@@ -884,7 +884,7 @@
 
     </div>
 
-    <audio id="audio" loop>
+    <audio id="audio">
         <source
             src="" >
     </audio>
@@ -1084,18 +1084,36 @@
             }
         }, 1000);
 
+        let audioPlayer = document.getElementById("audio");
 
+        function randomSource(){
+            console.log("randomSource");
+            var sources = ["audio1.mp3","audio2.mp3","audio3.mp3","audio4.mp3"];
+            let targetAudioIndex= getRandomInt(0,3);
+            
+            while(true){
+                if(targetAudioIndex==localStorage.getItem("lastAudioIndex")){
+                    targetAudioIndex= getRandomInt(0,3);
+                    continue;
+                }
+                localStorage.setItem("lastAudioIndex",targetAudioIndex)
+                break;
+            }
+
+            if(audioPlayer){
+                console.log("sources: ",sources[targetAudioIndex]);
+                audioPlayer.src= "./audios/"+sources[targetAudioIndex];
+            }
+        }
 
         $( document ).ready(function() {
             console.log( "ready!" );
-            var audio = document.getElementById("audio");
-            var sources = ["audio1.mp3","audio2.mp3","audio3.mp3","audio4.mp3"];
-            const targetAudioIndex= getRandomInt(0,3);
-            console.log("sources",sources)
-            console.log('target adudio index: '+targetAudioIndex);
-            if(audio){
-                audio.src= "./audios/"+sources[targetAudioIndex];
-            }
+            randomSource();
+            audioPlayer.onended = function() {
+                randomSource();
+                audioPlayer.play();
+            };
+            
         });
 
     </script>
