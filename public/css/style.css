@@ -4237,3 +4237,9 @@ img {
 	left: 11.7%;
 	width: 77%;
 }
+
+#more {display: none;}
+
+.displayNone{
+	display: none;
+}
