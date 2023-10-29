@@ -1393,11 +1393,11 @@
         function randomSource(){
             console.log("randomSource");
             var sources = ["audio1.mp3","audio3.mp3","audio4.mp3"];
-            let targetAudioIndex= getRandomInt(0,3);
+            let targetAudioIndex= getRandomInt(0,2);
             
             while(true){
                 if(targetAudioIndex==localStorage.getItem("lastAudioIndex")){
-                    targetAudioIndex= getRandomInt(0,3);
+                    targetAudioIndex= getRandomInt(0,2);
                     continue;
                 }
                 localStorage.setItem("lastAudioIndex",targetAudioIndex)
