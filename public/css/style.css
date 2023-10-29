@@ -4243,3 +4243,43 @@ img {
 .displayNone{
 	display: none;
 }
+
+.justityText{
+	text-align: justify;
+}
+.theCover{
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	align-items: center;
+}
+.w75P{
+	max-width: 75%;
+}
+
+.coverr-title{
+	margin-top: 16%;
+	margin-bottom: 16%;
+	font-size: 4rem;
+	font-family: 'Agbalumo';
+}
+.name{
+font-family: 'Agbalumo';
+font-size: 4rem;
+line-height: normal;
+margin-top:5%
+}
+.date{
+font-family: 'Agbalumo';
+font-size: 6rem;	
+}
+
+.color-white{
+	color:white
+}
+
+.mT-5P{
+	margin-bottom:16%,
+}
+
