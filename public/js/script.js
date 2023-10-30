@@ -262,4 +262,19 @@ $(document).ready(function () {
     setAudioSource(audioSources, audioIndex);
     audioPlayer.play();
   };
+  swal({
+    title: "Cấp quyền âm thanh?",
+    text: "Vui lòng cấp quyền âm thanh để có trải nghiệm tốt nhất",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+    html: "compa&ntilde;ia",
+  }).then((isAgree) => {
+    if (isAgree) {
+      console.log("isAgree");
+      let button = document.getElementsByClassName("btn-musicf");
+      console.log(button);
+      button[0].click();
+    }
+  });
 });
