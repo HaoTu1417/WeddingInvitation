@@ -1017,7 +1017,7 @@
             <div class="text-center mt-20 element-hide-rap">
                 <div>
                     <span class="font-18">Quý vị có ăn chay không?</span>
-                    <select id="IsVegetarian" class="form-control" name="select_pt_pt">
+                    <select id="IsVegetarian" class="form-control" name="select_pt_pt" onchange="VegetarianChange()">
                         <option value="false">
                             Không
                         </option>
@@ -1028,7 +1028,7 @@
                 </div>
             </div>
 
-            <div class="text-center mt-20 element-hide-rap">
+            <div class="text-center mt-20 element-hide-rap" id="VegetarianCountParent" style="display:none">
                 <div>
                     <span class="font-18">Số lượng người ăn chay</span>
                     <select id="VegetarianCount" class="form-control" name="select_pt_pt">
@@ -1222,6 +1222,17 @@
     <script type="text/javascript">
         let isStoryFull = false;
 
+
+        function VegetarianChange(){
+            var x = document.getElementById("IsVegetarian").value;
+            console.log(x);
+            const vegetarianCountParent= document.getElementById("VegetarianCountParent")
+            if(x=="true"){
+               vegetarianCountParent.style.display= "block";
+            }else{
+                 vegetarianCountParent.style.display= "none";
+            }
+        }
 
         function myFunction() {
             const heart = document.getElementById("Story_Heart");
