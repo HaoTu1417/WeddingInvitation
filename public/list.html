@@ -49,6 +49,7 @@
                                     const cell = document.createElement("td");
                                     if (key == "type") {
                                         cell.textContent = item[key] == 1 ? "Nhà trai" : "Nhà gái";
+                                        row.style.backgroundColor = item[key] == 1 ? "ffffff" : "#cfcdcc";
                                     } else if (key == "ready") {
                                         cell.textContent = item[key] ? "Có" : "Không";
                                     } else if (key == "vegetarian") {
