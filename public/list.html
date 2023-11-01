@@ -3,6 +3,8 @@
 
 <head>
     <title>Data Table</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -22,194 +24,63 @@
     </table>
 
     <script>
-        // Your data array
-        const data = [
-            {
-                "_id": "64ee089f80c54b0219e77eff",
-                "name": "Tu Tung Hao",
-                "type": 0,
-                "ready": true,
-                "count": 2,
-                "transportationType": 0,
-                "vegetarian": true,
-                "__v": 0
-            },
-            {
-                "_id": "6537409ad3709de9d0d45356",
-                "name": "Kyat",
-                "type": 0,
-                "ready": true,
-                "count": 4,
-                "transportationType": 0,
-                "vegetarian": true,
-                "vegetarianCount": 3,
-                "__v": 0
-            },
-            {
-                "_id": "653e62031aae544a3d2e00f6",
-                "name": "Huỳnh Bội San",
-                "type": 1,
-                "ready": true,
-                "count": 2,
-                "transportationType": 0,
-                "vegetarian": false,
-                "vegetarianCount": 1,
-                "__v": 0
-            },
-            {
-                "_id": "653f26f1ae65d8464aebb18d",
-                "name": "Huỳnh Bội San",
-                "type": 1,
-                "ready": true,
-                "count": 2,
-                "transportationType": 0,
-                "vegetarian": false,
-                "vegetarianCount": 1,
-                "__v": 0
-            },
-            {
-                "_id": "653f2cb6ae65d8464aebb18f",
-                "name": "Paul",
-                "type": 1,
-                "ready": true,
-                "count": 2,
-                "transportationType": 0,
-                "vegetarian": false,
-                "vegetarianCount": 1,
-                "__v": 0
-            },
-            {
-                "_id": "6540656f3f1cbc0cc2f2d39e",
-                "name": "Nguyễn Văn Vũ",
-                "type": 1,
-                "ready": true,
-                "count": 1,
-                "transportationType": 0,
-                "vegetarian": false,
-                "vegetarianCount": 1,
-                "__v": 0
-            },
-            {
-                "_id": "65406af23f1cbc0cc2f2d3a0",
-                "name": "Trần Trương Vũ / Mai Thị Hồng Nhung",
-                "type": 1,
-                "ready": true,
-                "count": 2,
-                "transportationType": 0,
-                "vegetarian": false,
-                "vegetarianCount": 1,
-                "__v": 0
-            },
-            {
-                "_id": "6540824e9e332c4c07622e86",
-                "name": "Nguyễn Anh Tiến",
-                "type": 1,
-                "ready": true,
-                "count": 1,
-                "transportationType": 0,
-                "vegetarian": false,
-                "vegetarianCount": 1,
-                "__v": 0
-            },
-            {
-                "_id": "6540824f9e332c4c07622e88",
-                "name": "Nguyễn Anh Tiến",
-                "type": 1,
-                "ready": true,
-                "count": 1,
-                "transportationType": 0,
-                "vegetarian": false,
-                "vegetarianCount": 1,
-                "__v": 0
-            },
-            {
-                "_id": "6540824f9e332c4c07622e8a",
-                "name": "Nguyễn Anh Tiến",
-                "type": 1,
-                "ready": true,
-                "count": 1,
-                "transportationType": 0,
-                "vegetarian": false,
-                "vegetarianCount": 1,
-                "__v": 0
-            },
-            {
-                "_id": "6540824f9e332c4c07622e8c",
-                "name": "Nguyễn Anh Tiến",
-                "type": 1,
-                "ready": true,
-                "count": 1,
-                "transportationType": 0,
-                "vegetarian": false,
-                "vegetarianCount": 1,
-                "__v": 0
-            },
-            {
-                "_id": "65408d1a9e332c4c07622e8e",
-                "name": "Nguyễn Anh Tiến",
-                "type": 1,
-                "ready": true,
-                "count": 1,
-                "transportationType": 0,
-                "vegetarian": false,
-                "vegetarianCount": 1,
-                "__v": 0
-            },
-            {
-                "_id": "6540cdd6d580d956ef3e6fbb",
-                "name": "Bạn KhaKha ",
-                "type": 0,
-                "ready": true,
-                "count": 1,
-                "transportationType": 0,
-                "vegetarian": false,
-                "vegetarianCount": 1,
-                "__v": 0
-            },
-            {
-                "_id": "6541067b95fc49b0dbad08e5",
-                "name": "Nguyễn Quang Toàn",
-                "type": 1,
-                "ready": true,
-                "count": 2,
-                "transportationType": 0,
-                "vegetarian": false,
-                "vegetarianCount": 1,
-                "__v": 0
-            }
-        ];
+        document.addEventListener("DOMContentLoaded", async function (event) {
+
+            axios
+                .get("/api/guestlist")
+                .then((response) => {
+                    // success responnse
+                    if (response.status >= 200 && response.status < 300) {
+                        const data = response.data;
 
 
-        const tableBody = document.getElementById("table-body");
+                        const tableBody = document.getElementById("table-body");
 
-        // Loop through the data and create table rows
-        data.forEach(item => {
-            const row = document.createElement("tr");
+                        // Loop through the data and create table rows
+                        data.forEach(item => {
+                            const row = document.createElement("tr");
 
-            // Create table cells and populate them with data, excluding _id field
-            for (const key in item) {
+                            // Create table cells and populate them with data, excluding _id field
+                            for (const key in item) {
 
 
 
-                if (key !== "_id" && key !== "__v" && key !== "transportationType") {
-                    const cell = document.createElement("td");
-                    if (key == "type") {
-                        cell.textContent = item[key] == 0 ? "Nhà trai" : "Nhà gai";
-                        console.log("== type", item[key], cell.textContent)
-                    } else if (key == "ready") {
-                        cell.textContent = item[key] ? "Có" : "Không";
-                    } else if (key == "vegetarian") {
-                        cell.textContent = item[key] ? "Có" : "Không";
+                                if (key !== "_id" && key !== "__v" && key !== "transportationType") {
+                                    const cell = document.createElement("td");
+                                    if (key == "type") {
+                                        cell.textContent = item[key] == 0 ? "Nhà trai" : "Nhà gai";
+                                    } else if (key == "ready") {
+                                        cell.textContent = item[key] ? "Có" : "Không";
+                                    } else if (key == "vegetarian") {
+                                        cell.textContent = item[key] ? "Có" : "Không";
+                                    } else {
+                                        cell.textContent = item[key];
+                                    }
+
+                                    row.appendChild(cell);
+                                }
+                            }
+
+                            tableBody.appendChild(row);
+                        });
                     } else {
-                        console.log("else", key)
-                        cell.textContent = item[key];
+                        swal({
+                            title: "Thất bại !",
+                            text: `Đã xảy ra lỗi ${response.status}, vui lòng liên hệ chú rể!`,
+                            icon: "error",
+                            button: "OK!",
+                        });
                     }
+                })
+                .catch((error) => {
+                    swal({
+                        title: "Thất bại !",
+                        text: `Đã xảy ra lỗi ${error.message}, vui lòng liên hệ chú rể!`,
+                        icon: "error",
+                        button: "OK!",
+                    });
+                });
 
-                    row.appendChild(cell);
-                }
-            }
-
-            tableBody.appendChild(row);
         });
     </script>
 </body>
