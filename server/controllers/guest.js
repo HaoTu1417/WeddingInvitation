@@ -32,3 +32,17 @@ export function createQuest(req, res) {
       });
     });
 }
+
+export async function getQuests(req, res) {
+  const guests = await Guest.find({});
+  res.send(guests);
+  // Guest.find({}, function (err, users) {
+  //   var guestMap = {};
+
+  //   users.forEach(function (user) {
+  //     guestMap[user._id] = user;
+  //   });
+
+  //   res.send(guestMap);
+  // });
+}

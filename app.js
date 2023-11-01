@@ -40,6 +40,9 @@ app.use("/api/", mainRoutes);
 app.get("/", (req, res) => {
   res.sendFile("public/index.html", { root: __dirname });
 });
+app.get("/list", (req, res) => {
+  res.sendFile("public/list.html", { root: __dirname });
+});
 
 app.listen(port, () => {
   console.log(`Our server is running on port ${port}`);
