@@ -48,7 +48,7 @@
                                 if (key !== "_id" && key !== "__v" && key !== "transportationType") {
                                     const cell = document.createElement("td");
                                     if (key == "type") {
-                                        cell.textContent = item[key] == 0 ? "Nhà trai" : "Nhà gai";
+                                        cell.textContent = item[key] == 1 ? "Nhà trai" : "Nhà gai";
                                     } else if (key == "ready") {
                                         cell.textContent = item[key] ? "Có" : "Không";
                                     } else if (key == "vegetarian") {
