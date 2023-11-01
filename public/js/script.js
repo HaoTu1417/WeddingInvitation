@@ -88,7 +88,7 @@ function OnSendClicked() {
     count: AttendessCount,
     transportationType: 0,
     vegetarian: IsVegetarianOption,
-    vegetarianCount: VegetarianCount,
+    vegetarianCount: IsVegetarianOption == true ? VegetarianCount : 0,
   };
 
   console.log("requestData", requestData);
